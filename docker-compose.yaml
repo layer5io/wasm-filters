@@ -6,14 +6,14 @@ services:
       context: ./
       dockerfile: envoy.Dockerfile
     volumes:
-      - ./tcp-metrics/envoy.yaml:/etc/envoy.yaml
-      - ./tcp-metrics/target/wasm32-unknown-unknown/release/tcp_metrics.wasm:/etc/tcp_metrics.wasm
-    # volumes:
+    #   - ./tcp-metrics/envoy.yaml:/etc/envoy.yaml
+    #   - ./tcp-metrics/target/wasm32-unknown-unknown/release/tcp_metrics.wasm:/etc/tcp_metrics.wasm
+
     #   - ./tcp-packet-parse/envoy.yaml:/etc/envoy.yaml
     #   - ./tcp-packet-parse/target/wasm32-unknown-unknown/release/tcp_packet_parse.wasm:/etc/tcp_packet_parse.wasm
-    # volumes:
-    #   - ./http-sample/envoy.yaml:/etc/envoy.yaml
-    #   - ./http-sample/target/wasm32-unknown-unknown/release/http_sample.wasm:/etc/http_sample.wasm
+
+      - ./http-auth/envoy.yaml:/etc/envoy.yaml
+      - ./http-auth/target/wasm32-unknown-unknown/release/http_auth.wasm:/etc/http_auth.wasm
     networks:
       - envoymesh
     expose:
@@ -36,12 +36,12 @@ services:
     ports:
       - "18080:5678"
       
-  wasm-upstream:
+  wasm_upstream:
     image: wasm-upstream:latest
     networks:
       envoymesh:
         aliases:
-          - wasm-upstream
+          - wasm_upstream
     expose:
       - "8080"
     ports:
