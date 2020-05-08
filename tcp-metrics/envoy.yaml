@@ -58,6 +58,15 @@ static_resources:
     - socket_address:
         address: web_service
         port_value: 5678
+        
+  - name: wasm-upstream
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    lb_policy: round_robin
+    hosts:
+    - socket_address:
+        address: wasm-upstream
+        port_value: 8080
 admin:
   access_log_path: "/dev/null"
   address:
