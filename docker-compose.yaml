@@ -8,6 +8,12 @@ services:
     volumes:
       - ./tcp-metrics/envoy.yaml:/etc/envoy.yaml
       - ./tcp-metrics/target/wasm32-unknown-unknown/release/tcp_metrics.wasm:/etc/tcp_metrics.wasm
+    # volumes:
+    #   - ./tcp-packet-parse/envoy.yaml:/etc/envoy.yaml
+    #   - ./tcp-packet-parse/target/wasm32-unknown-unknown/release/tcp_packet_parse.wasm:/etc/tcp_packet_parse.wasm
+    # volumes:
+    #   - ./http-sample/envoy.yaml:/etc/envoy.yaml
+    #   - ./http-sample/target/wasm32-unknown-unknown/release/http_sample.wasm:/etc/http_sample.wasm
     networks:
       - envoymesh
     expose:
@@ -29,6 +35,17 @@ services:
       - "5678"
     ports:
       - "18080:5678"
+      
+  wasm-upstream:
+    image: wasm-upstream:latest
+    networks:
+      envoymesh:
+        aliases:
+          - wasm-upstream
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
 
 networks:
   envoymesh: {}
