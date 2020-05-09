@@ -50,9 +50,10 @@ impl Context for UpstreamCall {
     fn on_http_call_response(&mut self, _token_id: u32, _num_headers: usize, _body_size: usize, _num_trailers: usize) {
         if let Some(body) = self.get_http_call_response_body(0, _body_size) {
             if let Ok(body) = std::str::from_utf8(&body) {
-                proxy_wasm::hostcalls::log(LogLevel::Info, format!("HTTP Call body : {:?}", body).as_str());
+                proxy_wasm::hostcalls::log(LogLevel::Info, format!("HTTP Call body : {:?} {:?}", body, body == "Authorized").as_str());
                 if body == "Authorized" {
                     self.resume_http_request();
+                    return;
                 }
                 self.send_http_response(
                     403,
