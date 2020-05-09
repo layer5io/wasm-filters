@@ -53,6 +53,21 @@ impl RootContext for SingletonService {
             if let Some(bytes) = res {
                 let pkt: Option<TCPMetrics> = bincode::deserialize(&bytes).unwrap();
                 proxy_wasm::hostcalls::log(LogLevel::Info, format!("Packet Recieved : {:?}", pkt).as_str());
+                let pkt = pkt.unwrap();
+                let body = format!("{} | {} | {}", pkt.data_downstream, pkt.data_upstream, pkt.latency);
+                let body = Some(body.as_bytes());
+                let x = self.dispatch_http_call(
+                    "wasm_upstream",
+                    vec![
+                        (":method", "GET"),
+                        (":path", "/store"),
+                        (":authority", "wasm_upstream"),
+                        ],
+                        body,
+                    vec![],
+                    Duration::from_secs(5),
+                );
+                proxy_wasm::hostcalls::log(LogLevel::Info, format!("Send stat upstream : {:?}", x).as_str());
             }
         }
     }

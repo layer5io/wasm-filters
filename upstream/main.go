@@ -2,18 +2,24 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
+var gldata = ""
+
 func store(w http.ResponseWriter, req *http.Request) {
-	// defer req.Body.Close()
-	// data, err := ioutil.ReadAll(req.Body)
-	// if err != nil {
-	// 	fmt.Printf("err: %v", err)
-	// 	return
-	// }
-	// fmt.Printf("data : %v", string(data))
+	defer req.Body.Close()
+	data, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		return
+	}
+	gldata += string(data) + "\n"
 	w.Write([]byte("store"))
+}
+
+func retrieve(w http.ResponseWriter, req *http.Request) {
+	w.Write([]byte(gldata))
 }
 
 func auth(w http.ResponseWriter, req *http.Request) {
@@ -34,6 +40,7 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/store", store)
+	http.HandleFunc("/retrieve", retrieve)
 	http.HandleFunc("/auth", auth)
 	http.ListenAndServe(":8080", nil)
 }
