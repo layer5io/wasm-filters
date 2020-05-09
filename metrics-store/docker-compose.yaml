@@ -1,0 +1,46 @@
+version: '2'
+services:
+
+  proxy:
+    build:
+      context: ../
+      dockerfile: envoy.Dockerfile
+    volumes:
+      - ./envoy.yaml:/etc/envoy.yaml
+      - ./metrics-collector/target/wasm32-unknown-unknown/release/metrics_collector.wasm:/etc/metrics_collector.wasm
+      - ./singleton-queue/target/wasm32-unknown-unknown/release/singleton_queue.wasm:/etc/singleton_queue.wasm
+    networks:
+      - envoymesh
+    expose:
+      - "80"
+      - "8001"
+    ports:
+      - "18000:80"
+      - "18001:8001"
+
+  web_service:
+    image: hashicorp/http-echo
+    command:
+      - '-text="Wasm filter test"'
+    networks:
+      envoymesh:
+        aliases:
+          - web_service
+    expose:
+      - "5678"
+    ports:
+      - "18080:5678"
+      
+  wasm_upstream:
+    image: wasm-upstream:latest
+    networks:
+      envoymesh:
+        aliases:
+          - wasm_upstream
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+
+networks:
+  envoymesh: {}
