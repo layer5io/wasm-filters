@@ -11,9 +11,12 @@ services:
 
     #   - ./tcp-packet-parse/envoy.yaml:/etc/envoy.yaml
     #   - ./tcp-packet-parse/target/wasm32-unknown-unknown/release/tcp_packet_parse.wasm:/etc/tcp_packet_parse.wasm
+    
+      # - ./http-auth/envoy.yaml:/etc/envoy.yaml
+      # - ./http-auth/target/wasm32-unknown-unknown/release/http_auth.wasm:/etc/http_auth.wasm
 
-      - ./http-auth/envoy.yaml:/etc/envoy.yaml
-      - ./http-auth/target/wasm32-unknown-unknown/release/http_auth.wasm:/etc/http_auth.wasm
+      - ./singleton-http-call/envoy.yaml:/etc/envoy.yaml
+      - ./singleton-http-call/target/wasm32-unknown-unknown/release/singleton_http_call.wasm:/etc/singleton_http_call.wasm
     networks:
       - envoymesh
     expose:
