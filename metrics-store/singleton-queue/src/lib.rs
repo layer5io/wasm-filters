@@ -1,6 +1,7 @@
 use proxy_wasm::traits::*;
 use proxy_wasm::types::*;
 use std::time::{SystemTime,Duration};
+use serde::{Deserialize};
 
 const QNAME: &str = "q1";
 
@@ -17,6 +18,13 @@ struct SingletonService {
     qid: Option<u32>
 }
 
+#[derive(Debug,Deserialize)]
+struct TCPMetrics {
+    data_downstream: usize,
+    data_upstream: usize,
+    latency: u128,
+    qid: Option<u32>
+}
 
 impl SingletonService {
     fn new() -> Self {
@@ -33,7 +41,7 @@ impl Context for SingletonService {
 impl RootContext for SingletonService {
     fn on_vm_start(&mut self, _vm_configuration_size: usize) -> bool {
         proxy_wasm::hostcalls::log(LogLevel::Debug, "VM instantiated");
-        self.set_tick_period(Duration::from_secs(5));
+        self.set_tick_period(Duration::from_secs(2));
         if let Ok(qid) = proxy_wasm::hostcalls::register_shared_queue(QNAME) {
             self.qid = Some(qid);
         }
@@ -41,6 +49,11 @@ impl RootContext for SingletonService {
     }
 
     fn on_tick(&mut self) {
-        proxy_wasm::hostcalls::log(LogLevel::Info, format!("Request Status").as_str());
+        if let Ok(res) = proxy_wasm::hostcalls::dequeue_shared_queue(self.qid.unwrap()) {
+            if let Some(bytes) = res {
+                let pkt: Option<TCPMetrics> = bincode::deserialize(&bytes).unwrap();
+                proxy_wasm::hostcalls::log(LogLevel::Info, format!("Packet Recieved : {:?}", pkt).as_str());
+            }
+        }
     }
 }

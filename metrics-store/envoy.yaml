@@ -14,6 +14,7 @@ static_resources:
             root_id: "metrics_collector"
             vm_config:
               runtime: "envoy.wasm.runtime.v8"
+              vm_id: "metrics_collector"
               code:
                 local:
                   filename: "/etc/metrics_collector.wasm"
@@ -69,9 +70,10 @@ static_resources:
 wasm_service:
   - config:
       name: envoy.filters.http.wasm
-      root_id: "singleton-http-call"
+      root_id: "singleton"
       vm_config:
         runtime: "envoy.wasm.runtime.v8"
+        vm_id: "singleton"
         code:
           local:
             filename: "/etc/singleton_queue.wasm"

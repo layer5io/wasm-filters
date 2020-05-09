@@ -1,7 +1,7 @@
 use proxy_wasm::traits::*;
 use proxy_wasm::types::*;
 use std::time::{SystemTime,Duration};
-
+use serde::{Serialize,Deserialize};
 
 #[no_mangle]
 pub fn _start() {
@@ -11,12 +11,14 @@ pub fn _start() {
     });
 }
 
-#[derive(Debug)]
+#[derive(Debug,Serialize,Deserialize,Copy,Clone)]
 struct TCPMetrics {
     data_downstream: usize,
     data_upstream: usize,
+    #[serde(skip_serializing)]
     time: SystemTime,
     latency: u128,
+    qid: Option<u32>
 }
 
 
@@ -27,6 +29,7 @@ impl TCPMetrics {
             data_upstream : 0,
             time: SystemTime::UNIX_EPOCH,
             latency: 0,
+            qid: None
         }
     }
 }
@@ -48,6 +51,19 @@ impl StreamContext for TCPMetrics {
         }
         proxy_wasm::hostcalls::log(LogLevel::Info, format!("{:?}", self).as_str());
         
+        if self.qid == None {
+            if let Ok(x) = proxy_wasm::hostcalls::resolve_shared_queue("singleton", "q1") {
+                proxy_wasm::hostcalls::log(LogLevel::Info, format!("Queue identified : {:?}", x).as_str());
+                self.qid = x;
+
+                let target: Option<TCPMetrics>  = Some(self.clone());
+                let encoded: Vec<u8> = bincode::serialize(&target).unwrap();
+                let res = proxy_wasm::hostcalls::enqueue_shared_queue(self.qid.unwrap(), Some(&encoded));
+
+                proxy_wasm::hostcalls::log(LogLevel::Info, format!("Enqueue result : {:?}", res).as_str());
+            }
+        }
+        
     }
     fn on_upstream_close(&mut self, _peer_type: PeerType) {
         if let Ok(curr_time) = proxy_wasm::hostcalls::get_current_time() {
@@ -57,4 +73,12 @@ impl StreamContext for TCPMetrics {
 }
 
 impl Context for TCPMetrics {}
-impl RootContext for TCPMetrics {}
+impl RootContext for TCPMetrics {
+    fn on_vm_start(&mut self, _vm_configuration_size: usize) -> bool {
+        proxy_wasm::hostcalls::log(LogLevel::Debug, "FILTER VM instantiated");
+        self.set_tick_period(Duration::from_secs(2));
+        true
+    }
+    fn on_tick(&mut self) {
+    }
+}
