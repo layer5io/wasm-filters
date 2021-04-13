@@ -64,7 +64,7 @@ make run-filtered
 
 Test:
 ```bash
-curl  -H 0.0.0.0:18000 -v -d "request body"
+curl 0.0.0.0:18000 -v -d "request body"
 ```
 
 Check the logs for the metrics.
@@ -81,7 +81,7 @@ make run-filtered
 
 Test:
 ```bash
-curl  -H 0.0.0.0:18000 -v -d "request body"
+curl 0.0.0.0:18000 -v -d "request body"
 ```
 
 Check the logs for the packet contents.
