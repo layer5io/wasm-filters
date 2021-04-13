@@ -12,6 +12,14 @@
 
 This repository contains WASM filters in rust exercising different features provided by envoy-wasm.
 
+## Get the Rust toolchain
+
+To compile Rust filters to WASM, the nightly toolchain and support for wasm compilation target is needed.
+In the project root directory, run:
+```bash
+make rust-toolchain
+```
+
 ## Upstream
 
 Upstream is a webserver which is used by few of the filters mentioned above. It provides a route for :
