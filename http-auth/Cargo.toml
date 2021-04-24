@@ -10,3 +10,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 proxy-wasm = "0.1.0"
+wasm-bindgen = "0.2"
