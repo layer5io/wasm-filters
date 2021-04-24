@@ -13,3 +13,4 @@ crate-type = ["cdylib"]
 proxy-wasm = "0.1.0"
 serde = { version = "1.0", default-features = false, features = ["derive"] }
 bincode = "1.0"
+wasm-bindgen = "0.2"
