@@ -7,7 +7,7 @@ services:
       dockerfile: envoy.Dockerfile
     volumes:
       - ./envoy.yaml:/etc/envoy.yaml
-      - ./target/wasm32-unknown-unknown/release/singleton_http_call.wasm:/etc/singleton_http_call.wasm
+      - ${WASM_PATH:-./target/wasm32-unknown-unknown/release/singleton_http_call.wasm}:/etc/singleton_http_call.wasm
     networks:
       - envoymesh
     expose:
