@@ -12,6 +12,14 @@
 
 This repository contains WASM filters in rust exercising different features provided by envoy-wasm.
 
+## Get the Rust toolchain
+
+To compile Rust filters to WASM, the nightly toolchain and support for wasm compilation target is needed.
+In the project root directory, run:
+```bash
+make rust-toolchain
+```
+
 ## Upstream
 
 Upstream is a webserver which is used by few of the filters mentioned above. It provides a route for :
@@ -32,10 +40,10 @@ make
 
 Simulates handling authentication of requests at proxy level. Requests with a header `token` with value `hello` are accepted as authorized while the rest unauthorized. The actual authentication is handled by the Upstream server. Whenever the proxy recieves a request it extracts the `token` header and makes a request to the Upstream server which validates the token and returns a response.
 
-Deploy: 
+Buld and deploy:
 ```bash
 cd http-auth
-make deploy-filtered
+make run-filtered
 ```
 
 Test:
@@ -48,15 +56,15 @@ curl  -H "token":"world" 0.0.0.0:18000 -v # Unauthorized
 
 Collects simple metrics for every TCP packet and logs it.
 
-Deploy: 
+Build and deploy:
 ```bash
 cd tcp-metrics
-make deploy-filtered
+make run-filtered
 ```
 
 Test:
 ```bash
-curl  -H 0.0.0.0:18000 -v -d "request body"
+curl 0.0.0.0:18000 -v -d "request body"
 ```
 
 Check the logs for the metrics.
@@ -65,15 +73,15 @@ Check the logs for the metrics.
 
 Parses the contents of every TCP packet the proxy recieves and logs it.
 
-Deploy: 
+Build and deploy:
 ```bash
 cd tcp-packet-parse
-make deploy-filtered
+make run-filtered
 ```
 
 Test:
 ```bash
-curl  -H 0.0.0.0:18000 -v -d "request body"
+curl 0.0.0.0:18000 -v -d "request body"
 ```
 
 Check the logs for the packet contents.
@@ -82,10 +90,10 @@ Check the logs for the packet contents.
 
 An example which depicts an singleton HTTP WASM service which does an HTTP call once every 2 seconds.
 
-Deploy: 
+Build and deploy:
 ```bash
 cd singleton-http-call
-make deploy-filtered
+make run-filtered
 ```
 
 Check the logs for the response of the request.
@@ -94,10 +102,10 @@ Check the logs for the response of the request.
 
 This example showcases communication between a WASM filter and a service via shared queue. It combines the `Singleton-HTTP-Call` and `TCP-Metrics` examples. The filter collects metrics and enqueues it onto the queue while the service dequeues it and sends it to upstream server where it is stored.
 
-Deploy: 
+Build and deploy:
 ```bash
 cd metrics-store
-make deploy-filtered
+make run-filtered
 ```
 
 Test:
