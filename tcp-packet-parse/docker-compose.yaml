@@ -7,7 +7,7 @@ services:
       dockerfile: envoy.Dockerfile
     volumes:
       - ./envoy.yaml:/etc/envoy.yaml
-      - ./target/wasm32-unknown-unknown/release/tcp_packet_parse.wasm:/etc/tcp_packet_parse.wasm
+      - ${WASM_PATH:-./target/wasm32-unknown-unknown/release/tcp_packet_parse.wasm}:/etc/tcp_packet_parse.wasm
     networks:
       - envoymesh
     expose:

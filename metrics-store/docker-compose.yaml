@@ -7,8 +7,8 @@ services:
       dockerfile: envoy.Dockerfile
     volumes:
       - ./envoy.yaml:/etc/envoy.yaml
-      - ./metrics-collector/target/wasm32-unknown-unknown/release/metrics_collector.wasm:/etc/metrics_collector.wasm
-      - ./singleton-queue/target/wasm32-unknown-unknown/release/singleton_queue.wasm:/etc/singleton_queue.wasm
+      - ${METRICS_COLLECTOR_WASM:-./metrics-collector/target/wasm32-unknown-unknown/release/metrics_collector.wasm}:/etc/metrics_collector.wasm
+      - ${SINGLETON_QUEUE_WASM:-./singleton-queue/target/wasm32-unknown-unknown/release/singleton_queue.wasm}:/etc/singleton_queue.wasm
     networks:
       - envoymesh
     expose:

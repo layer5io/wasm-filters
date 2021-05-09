@@ -15,10 +15,13 @@ This repository contains WASM filters in rust exercising different features prov
 ## Get the Rust toolchain
 
 To compile Rust filters to WASM, the nightly toolchain and support for wasm compilation target is needed.
-In the project root directory, run:
+Make sure you have Rust and Cargo installed [using Rustup](https://www.rust-lang.org/tools/install).
+If you're on a *nix system (Unix, Linux, MacOS), in the project root directory, run:
 ```bash
 make rust-toolchain
 ```
+This will also install wasm-pack for you.
+Also, take a look at [installing wasm-pack](https://rustwasm.github.io/wasm-pack/installer/) for OS other than *nix.
 
 ## Upstream
 
