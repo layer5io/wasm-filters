@@ -8,9 +8,11 @@
 [![Slack](http://slack.layer5.io/badge.svg)](http://slack.layer5.io)
 ![Twitter Follow](https://img.shields.io/twitter/follow/layer5.svg?label=Follow&style=social)
 
-# WASM Filters
+# WebAssembly Filters for Envoy
 
-This repository contains WASM filters in rust exercising different features provided by envoy-wasm.
+This repository contains WASM filters in Rust and other languages for exercising different features provided by envoy-wasm.
+
+See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.
 
 ## Get the Rust toolchain
 
