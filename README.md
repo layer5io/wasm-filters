@@ -13,7 +13,7 @@
 
 This repository meant to house WASM filters written in C,C++,C# and Rust for exercising different features provided by envoy-wasm.
 
-See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.s
+See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.
 
 ## Get the Rust toolchain
 
