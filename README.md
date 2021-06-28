@@ -5,14 +5,15 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/layer5io/layer5.svg)
 ![GitHub](https://img.shields.io/github/license/layer5io/layer5.svg) 
 ![GitHub issues by-label](https://img.shields.io/github/issues/layer5io/layer5/help%20wanted.svg?color=%23DDDD00)
-[![Slack](http://slack.layer5.io/badge.svg)](http://slack.layer5.io)
+<a href="https://slack.layer5.io" alt="Slack">
+<img src="https://img.shields.io/badge/Slack-@layer5.svg?logo=slack" /></a>
 ![Twitter Follow](https://img.shields.io/twitter/follow/layer5.svg?label=Follow&style=social)
 
 # WebAssembly Filters for Envoy
 
 This repository meant to house WASM filters written in C,C++,C# and Rust for exercising different features provided by envoy-wasm.
 
-See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.
+See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.s
 
 ## Get the Rust toolchain
 
