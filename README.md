@@ -154,7 +154,7 @@ Our projects are community-built and welcome collaboration. 👍 Be sure to see 
 
 Topic : WebAssembly Filters Meeting
 
-Time : 7:30pm– 8:15pm (IST)
+Time : 7:30pm – 8:15pm (IST)
 
 WASM Filters call - https://meet.layer5.io/wasm
 
