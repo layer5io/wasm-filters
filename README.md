@@ -147,3 +147,15 @@ Our projects are community-built and welcome collaboration. 👍 Be sure to see 
 
 **Open Source First**
 <p>Our projects establish industry standards and enable service developers, owners, and operators with repeatable patterns and best practices for managing all aspects of distributed services. Our shared commitment to the open source spirit push the Layer5 community and its projects forward.</p>
+
+### Weekly Meeting Details
+
+**Weekly on Monday**
+
+Topic : WebAssembly Filters Meeting
+
+Time : 7:30pm– 8:15pm (IST)
+
+WASM Filters call - https://meet.layer5.io/wasm
+
+Meeting Minutes - https://bit.ly/3zGZgGg
