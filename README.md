@@ -147,3 +147,130 @@ Our projects are community-built and welcome collaboration. 👍 Be sure to see 
 
 **Open Source First**
 <p>Our projects establish industry standards and enable service developers, owners, and operators with repeatable patterns and best practices for managing all aspects of distributed services. Our shared commitment to the open source spirit push the Layer5 community and its projects forward.</p>
+
+### Weekly Community Meeting Details
+
+
+#### Weekly on Monday
+
+- Topic : Websites Weekly Call
+
+  Time : 5:30 – 6:30pm
+
+  Websites call - https://meet.layer5.io/websites
+ 
+  Websites Meeting Minutes - https://bit.ly/2XK4eQV
+
+
+- Topic: WebAssembly Filters Meeting
+ 
+    Time: 7:30 – 8:15pm
+ 
+    WASM Filters call - https://meet.layer5.io/wasm
+    
+    Meeting Minutes - https://bit.ly/3zGZgGg
+
+
+**Weekly on Tuesday**
+
+- Topic : MeshSync/MeshMap Meeting
+
+  Meeting Call: https://meet.layer5.io/meshmap
+
+  Time :  7:00 – 8:00pm
+
+  Meeting Minutes: https://bit.ly/3aXOaAs 
+
+  MeshMap - https://bit.ly/3gBu3Jv 
+  
+  MeshSync - https://bit.ly/2YA5feM
+
+
+**Weekly on Wednesday**
+
+ 
+- Topic : MeshSync/MeshMap Meeting 
+
+  Time:  7:30 – 8:30pm
+
+  Development Call - https://meet.layer5.io/meshery
+
+  Meeting Minutes - https://bit.ly/31OGQTk
+
+  Community Calendar - https://bit.ly/2SbrRhe
+
+
+**Every 2 weeks on Wednesday**
+
+
+- Topic: Service Mesh Interface Community Meeting
+
+  Time: 10:30 – 11:00pm
+  
+  Zoom - https://zoom.us/my/cncfsmiproject 
+       
+  Meeting Minutes - https://docs.google.com/document/d/1NTBaJf6LhUBlF8_lfvBBt_MbyPvT-6CZNg6Ckpm_yCo/edit
+
+  Design Spec - https://docs.google.com/document/d/1HL8Sk7NSLLj-9PRqoHYVIGyU6fZxUQFotrxbmfFtjwc/edit#
+
+
+
+**Weekly on Thursday**
+
+
+A regular meeting of new community members, tutorials, and Layer5 projects overviews. A forum for assistance with issues that you are facing as new members of the Layer5 community. Add your topics to the agenda in the meeting minutes!
+
+
+- Topic : Layer5 Newcomers' Meeting
+
+  Time : 6:30 – 7:30pm
+
+  Zoom Call - https://meet.layer5.io/newcomers
+
+  Meeting minutes - https://bit.ly/353Aa7D
+
+
+
+**Monthly on the first Thursday**
+
+
+- Topic : CNCF SIG-Network Meeting
+
+  Time : 11:30pm-12:25am
+
+  Zoom Call- https://zoom.us/j/2661611236
+  
+  CNCF TAG Network Meeting Notes - https://docs.google.com/document/d/18hYemFKK_PC_KbT_TDBUgb0rknOuIhikkRxer4_bv4Q/edit# 
+                                            
+                                                            
+
+**Monthly on the second Thursday**
+
+
+- Topic : Meshery CI WG Meeting
+
+  Time : 11:30pm-12:30am
+
+  Zoom Link - https://meet.layer5.io/meshery-ci
+  
+  Meeting Minutes - http://bit.ly/3sdtU68       
+                                                                                                                                   
+                                                                                                                                   
+
+**Weekly on Friday**
+
+
+- Topic : Layer5 Community Meeting
+
+  Time : 8:30 – 9:30pm
+
+  Community Call -  https://meet.layer5.io/community
+
+  Meeting Minutes - https://bit.ly/2It7IA4
+
+  Community Drive - https://bit.ly/2Y7njyd
+
+
+Community Calendar- https://layer5.io/community/calendar#meetings
+
+
