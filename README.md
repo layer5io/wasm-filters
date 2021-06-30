@@ -14,6 +14,18 @@ A collection of WebAssemby filters for Envoy proxy written in C,C++,C# and Rust 
 
 See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (a sample application). Also, see Meshery's filter management capabitilies.
 
+### Weekly Meeting Details
+
+See all community meeting details --> https://meet.layer5.io
+
+- Topic: WebAssembly Filters Meeting
+- Day: Weekly on Mondays
+- Time: 7:30pm  IST / 3:00pm UK / 9:00am Central 
+- WASM Filters call: https://meet.layer5.io/wasm
+- Meeting Minutes: https://bit.ly/3zGZgGg
+
+---
+
 ## Join the service mesh community!
 
 <a name="contributing"></a><a name="community"></a>
@@ -43,15 +55,7 @@ Our projects are community-built and welcome collaboration. 👍 Be sure to see 
 **Open Source First**
 <p>Our projects establish industry standards and enable service developers, owners, and operators with repeatable patterns and best practices for managing all aspects of distributed services. Our shared commitment to the open source spirit push the Layer5 community and its projects forward.</p>
 
-### Weekly Meeting Details
-
-**Weekly on Monday**
-See all community meeting details --> https://meet.layer5.io
-
-- Topic: WebAssembly Filters Meeting
-- Time: 7:30pm  IST / 3:00pm UK / 9:00am Central 
-- WASM Filters call: https://meet.layer5.io/wasm
-- Meeting Minutes: https://bit.ly/3zGZgGg
+---
 
 ## Get the Rust toolchain
 
