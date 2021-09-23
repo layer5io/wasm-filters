@@ -13,5 +13,5 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"CSK7N9TGX\",\"text\":\"Someone just starred wasm-filters! (https://github.com/layer5io/wasm-filters/stargazers) Total stars: ${{env.STARS}}\"}'
+          args: '{\"channel\":\"CSK7N9TGX\",\"text\":\"${{ github.actor }} just starred wasm-filters! (https://github.com/layer5io/wasm-filters/stargazers) Total stars: ${{env.STARS}}\"}'
           command: echo "Now at ${{env.STARS}} stars."
