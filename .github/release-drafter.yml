@@ -5,6 +5,11 @@ categories:
     labels:
       - 'kind/feature'
       - 'kind/enhancement'
+  - title: '🔋 Patterns, Filters, Applications'
+    labels:
+      - 'component/patterns'
+      - 'component/applications'
+      - 'component/filters'      
   - title: '🐛 Bug Fixes'
     labels:
       - 'kind/fix'
@@ -17,13 +22,15 @@ categories:
       - 'area/tests'
   - title: 📖 Documentation
     label: area/docs
+  - title: 🔒 Security
+    label: security  
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## What's New
-  **General**
+  ## 🔤 General
   $CHANGES
 
-  ## Contributors
+  ## 👨🏽‍💻 Contributors
 
   Thank you to our contributors for making this release possible:
   $CONTRIBUTORS
@@ -31,3 +38,18 @@ autolabeler:
   - label: 'area/docs'
     branch:
       - '/docs/'
+  - label: 'area/ci'    
+    branch:
+      - '/.github/'
+  - label: 'component/ui'
+    branch:
+      - '/ui/'
+      - '/provider-ui/'
+  - label: 'component/mesheryctl'
+    branch:
+      - '/mesheryctl/'
+  - label: 'area/lifecycle'
+    branch:
+      - '/install/'
+
+
