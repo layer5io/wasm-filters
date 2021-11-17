@@ -51,3 +51,4 @@ autolabeler:
   - label: 'area/lifecycle'
     branch:
       - '/install/'
+ 
