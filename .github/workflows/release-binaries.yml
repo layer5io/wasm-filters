@@ -39,7 +39,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: tcp_metrics_bg.wasm
-        path: ./tcp-metrics/pkg/tcp_metrics_bg
+        path: ./tcp-metrics/pkg/tcp_metrics_bg.wasm
 
     - name: Build tcp-packet-parse
       run: sh -c "cd tcp-packet-parse && wasm-pack build --release"
