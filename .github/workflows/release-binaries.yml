@@ -49,8 +49,11 @@ jobs:
         name: tcp_packet_parse_bg.wasm
         path: ./tcp-packet-parse/pkg/tcp_packet_parse_bg.wasm
 
-    - name: Build metrics-store
-      run: sh -c "cd metrics-store/metrics-collector && wasm-pack build --release && cd metrics-store/singleton-queue && wasm-pack build --release"
+    - name: Build metrics-collector
+      run: sh -c "cd metrics-store/metrics-collector && wasm-pack build --release"
+
+    - name: Build singleton-queue
+      run: sh -c "cd metrics-store/singleton-queue && wasm-pack build --release"
 
     - uses: actions/upload-artifact@v2
       with:
