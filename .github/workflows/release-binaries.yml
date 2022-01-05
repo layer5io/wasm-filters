@@ -26,7 +26,7 @@ jobs:
         path: ./http-auth/pkg/http_auth_bg.wasm
 
     - name: Build singleton-http-call
-      run: sh -c "cd http-auth && wasm-pack build --release"
+      run: sh -c "cd cd singleton-http-call && wasm-pack build --release"
 
     - uses: actions/upload-artifact@v2
       with:
