@@ -17,59 +17,12 @@ jobs:
     - name: Toolchain installation
       run: sh -c "rustup toolchain install nightly && rustup target add wasm32-unknown-unknown && cargo install wasm-pack"
 
-    - name: Build http-auth
-      run: sh -c "cd http-auth && wasm-pack build --release"
+    - name: Build binaries
+      run: sh release-binaries.sh
 
     - uses: actions/upload-artifact@v2
       with:
         name: http_auth_bg.wasm
-        path: ./http-auth/pkg/http_auth_bg.wasm
+        path: ./wasm-filters.tar.gz 
 
-    - name: Build singleton-http-call
-      run: sh -c "cd singleton-http-call && wasm-pack build --release"
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: singleton_http_call_bg.wasm
-        path: ./singleton-http-call/pkg/singleton_http_call_bg.wasm
-
-    - name: Build tcp-metrics
-      run: sh -c "cd tcp-metrics && wasm-pack build --release"
     
-    - uses: actions/upload-artifact@v2
-      with:
-        name: tcp_metrics_bg.wasm
-        path: ./tcp-metrics/pkg/tcp_metrics_bg.wasm
-
-    - name: Build tcp-packet-parse
-      run: sh -c "cd tcp-packet-parse && wasm-pack build --release"
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: tcp_packet_parse_bg.wasm
-        path: ./tcp-packet-parse/pkg/tcp_packet_parse_bg.wasm
-
-    - name: Build metrics-collector
-      run: sh -c "cd metrics-store/metrics-collector && wasm-pack build --release"
-
-    - name: Build singleton-queue
-      run: sh -c "cd metrics-store/singleton-queue && wasm-pack build --release"
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: metrics_collector_bg.wasm
-        path: ./metrics-store/metrics-collector/pkg/metrics_collector_bg.wasm
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: singleton_queue_bg.wasm
-        path: ./metrics-store/singleton-queue/pkg/singleton_queue_bg.wasm
-
-
-    - name: Build JWTManipulator9000
-      run: sh -c "cd JWTManipulator9000 && wasm-pack build --release"
-    
-    - uses: actions/upload-artifact@v2
-      with:
-        name: jwt_filter_bg.wasm
-        path: ./JWTManipulator9000/pkg/jwt_filter_bg.wasm
