@@ -22,7 +22,7 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: http_auth_bg.wasm
+        name: wasm-filters.tar.gz 
         path: ./wasm-filters.tar.gz 
 
     
