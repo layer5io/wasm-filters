@@ -1,0 +1,28 @@
+name: release binaries 
+
+on:
+  release:
+    types: [published]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Toolchain installation
+      run: sh -c "rustup toolchain install nightly && rustup target add wasm32-unknown-unknown && cargo install wasm-pack"
+
+    - name: Build binaries
+      run: sh release-binaries.sh
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: wasm-filters.tar.gz 
+        path: ./wasm-filters.tar.gz 
+
+    
