@@ -1,17 +1,18 @@
-name: release binaries 
-
+name: Build/Release binaries
 on:
-  release:
-    types: [published]
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - "*"
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Toolchain installation
@@ -19,10 +20,19 @@ jobs:
 
     - name: Build binaries
       run: sh release-binaries.sh
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: wasm-filters.tar.gz 
-        path: ./wasm-filters.tar.gz 
+    
+    # the below step will take place only when there is a release
+    - name: Upload wasm binaries to the latest made release
+      if: github.event_name == 'release'
+      run: |
+        set -x
+        assets=()
+        for asset in ./wasm-filters/*.wasm; do
+          assets+=("-a" "$asset")
+        done
+        tag_name="${GITHUB_REF##*/}"
+        hub release edit "${assets[@]}" -m "" "stable-$tag_name"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
