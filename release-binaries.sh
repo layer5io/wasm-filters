@@ -28,7 +28,6 @@ for d in */ ; do
 	fi
 	cd ..
 done
-cd wasm-filters
-tar -czvf wasm-filters.tar.gz ./wasm-filters
+
 
 
