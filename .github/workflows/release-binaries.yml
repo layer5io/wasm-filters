@@ -1,5 +1,8 @@
 name: Build/Release binaries
+
 on:
+  release:
+    types: [published]
   pull_request:
     branches:
       - "*"
@@ -31,7 +34,7 @@ jobs:
           assets+=("-a" "$asset")
         done
         tag_name="${GITHUB_REF##*/}"
-        hub release edit "${assets[@]}" -m "" "stable-$tag_name"
+        hub release edit "${assets[@]}" -m "" "$tag_name"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
