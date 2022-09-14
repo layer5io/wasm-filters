@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -10,7 +10,7 @@ var gldata = ""
 
 func store(w http.ResponseWriter, req *http.Request) {
 	defer req.Body.Close()
-	data, err := ioutil.ReadAll(req.Body)
+	data, err := io.ReadAll(req.Body)
 	if err != nil {
 		return
 	}
