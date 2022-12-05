@@ -1,6 +1,10 @@
-
 <p style="text-align:center;" align="center">
-  <img align="center" src="https://raw.githubusercontent.com/layer5io/layer5/master/.github/assets/images/layer5/layer5-tag-white-bg.png" width="45%" /></p>
+      <picture align="center">
+         <source media="(prefers-color-scheme: dark)" srcset="img\readme\layer5-light-no-trim.svg">
+         <source media="(prefers-color-scheme: light)" srcset="img\readme\layer5-no-trim.svg">
+         <img align="center" src="./.github/assets/images/layer5/layer5-no-trim.svg" alt="Shows a dark layer5 logo in light mode and a white logo in dark mode" width="45%"/>
+      </picture>
+</p>
 
 ![GitHub contributors](https://img.shields.io/github/contributors/layer5io/layer5.svg)
 ![GitHub](https://img.shields.io/github/license/layer5io/layer5.svg) 
@@ -26,14 +30,21 @@ See all community meeting details --> https://meet.layer5.io
 
 ---
 
-## Join the service mesh community!
+## Join the Community!
 
 <a name="contributing"></a><a name="community"></a>
 Our projects are community-built and welcome collaboration. 👍 Be sure to see the <a href="https://docs.google.com/document/d/17OPtDE_rdnPQxmk2Kauhm3GwXF1R5dZ3Cj8qZLKdo5E/edit">Layer5 Community Welcome Guide</a> for a tour of resources available to you and jump into our <a href="http://slack.layer5.io">Slack</a>!
 
-<a href="https://meshery.io/community"><img alt="Layer5 Service Mesh Community" src="img/readme/community.svg" style="margin-left:10px;padding-top:5px;" width="110px" align="right" /></a>
+<a href="https://slack.meshery.io">
 
-<a href="http://slack.layer5.io"><img alt="Layer5 Service Mesh Community" src="img/readme/slack-128.png" style="margin-right:8px;padding-top:5px;" width="140px" align="left" /></a>
+<picture align="right">
+  <source media="(prefers-color-scheme: dark)" srcset="img\readme\slack-dark-128.png"  width="110px" align="right" style="margin-left:10px;margin-top:10px;">
+  <source media="(prefers-color-scheme: light)" srcset="img\readme\slack-128.png" width="110px" align="right" style="margin-left:10px;padding-top:5px;">
+  <img alt="Shows an illustrated light mode meshery logo in light color mode and a dark mode meshery logo dark color mode." src="img\readme\slack-128.png" width="110px" align="right" style="margin-left:10px;padding-top:13px;">
+</picture>
+</a>
+
+<a href="https://meshery.io/community"><img alt="Layer5 Community" src="img\readme\community.svg" style="margin-right:8px;padding-top:5px;" width="140px" align="left" /></a>
 
 <p>
 ✔️ <em><strong>Join</strong></em> <a href="https://meet.layer5.io">community meetings</a>. See details on the <a href="https://calendar.google.com/calendar/b/1?cid=bGF5ZXI1LmlvX2VoMmFhOWRwZjFnNDBlbHZvYzc2MmpucGhzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20">Layer5 community calendar</a>.<br />
@@ -49,13 +60,8 @@ Our projects are community-built and welcome collaboration. 👍 Be sure to see 
 
 ### About Layer5
 
-**Community First**
-<p>The <a href="https://layer5.io">Layer5</a> community represents the largest collection of service mesh projects and their maintainers in the world.</p>
+[Layer5](https://layer5.io)'s cloud native application and infrastructure management software enables organizations to expect more from their infrastructure. We embrace developer-defined infrastructure. We empower engineer to change how they write applications, support operators in rethinking how they run modern infrastructure and enable product owners to regain full control over their product portfolio.
 
-**Open Source First**
-<p>Our projects establish industry standards and enable service developers, owners, and operators with repeatable patterns and best practices for managing all aspects of distributed services. Our shared commitment to the open source spirit push the Layer5 community and its projects forward.</p>
-
----
 
 ## Get the Rust toolchain
 
