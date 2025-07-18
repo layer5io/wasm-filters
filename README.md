@@ -22,11 +22,6 @@ See the [Image Hub](https://layer5.io/projects/image-hub) as a related project (
 
 See all community meeting details --> https://meet.layer5.io
 
-- Topic: WebAssembly Filters Meeting
-- Day: Weekly on Mondays
-- Time: 7:30pm IST / 3:00pm UK / 9:00am Central
-- WASM Filters call: https://meet.layer5.io/wasm
-- Meeting Minutes: https://bit.ly/3zGZgGg
 
 ---
 
